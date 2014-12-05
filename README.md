@@ -2,6 +2,20 @@
 
 This is the official [Redbooth API v3](https://redbooth.com/api/api-docs/) documentation repository.
 
+## Contributing
+
+To contribute to the documentation please fork this repo, make your changes and then do a pull request.
+
+The documentation is organized into different parts located in the [`parts`](https://github.com/teambox/api-v3-docs/tree/master/parts) folder.
+
+To have the whole documentation on a single file, simply run `make doc` at the root of the repo.
+
+## Rendering the documentation
+
+To render the documentation you just have to run `make render` on a cloned repo folder.
+
+You will need to have `npm` installed.
+
 ## License
 
 Copyright 2014 Redbooth, Inc. All rights reserved.
