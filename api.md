@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://api.mywebsite.com
+HOST: https://redbooth.com/api
 
 # API Documentation
 
