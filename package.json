@@ -1,6 +1,6 @@
 {
   "name": "redbooth-api-v3-docs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Redbooth official API v3 documentation",
   "dependencies": {
     "aglio": "^1.16.2"
