@@ -86,7 +86,7 @@ Posts a new project with a new id in the location (project_id) that you specify.
 
 + Parameters
 
-    + organizations_id (required, integer, `121`) ... Id of the organization to which the project will belong after posting it.
+    + organization_id (required, integer, `121`) ... Id of the organization to which the project will belong after posting it.
     + name (required, string, `Example name`) ... The name that the project will have.
     + archived `false` (optional, string, `true`) ... Projects can be archived when an administrator decides that the project has finished. This parameter can be =true or =false. It doesn’t make much sense to post an archived project but here’s the possibility to do it!
     + tracks_time = `false` (optional, string, `true`) ... This parameter can be true/false to enable/disable time tracking.
@@ -210,7 +210,7 @@ Modifies an existing project, id is mandatory.
 + Parameters
 
     + id (required, integer, `121879`) ... Id of the project that we are looking for. It is MANDATORY and it has to be in the url.
-    + organizations_id (required, integer, `121`) ... Id of the organization to which the project will belong after modifying it.
+    + organization_id (required, integer, `121`) ... Id of the organization to which the project will belong after modifying it.
     + name (required, string, `Example name`) ... The name that the project will have.
     + archived `false` (optional, string, `true`) ... Projects can be archived when an administrator decides that the project has finished. This parameter can be =true or =false. It doesn’t make much sense to post an archived project but here’s the possibility to do it!
     + tracks_time = `false` (optional, string, `true`) ... This parameter can be true/false to enable/disable time tracking.
