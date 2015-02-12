@@ -36,7 +36,8 @@ Redbooth’s comments are small peaces of content that form part of tasks and co
                     "previous_urgent":false,
                     "email_id":null,
                     "time_tracking_on":"2014-06-26",
-                    "status":"new","previous_status":"new"
+                    "status":"new","previous_status":"new",
+                    "file_ids": [123]
                 },
                 {
                     "type":"Comment",
@@ -62,7 +63,8 @@ Redbooth’s comments are small peaces of content that form part of tasks and co
                     "email_id":null,
                     "time_tracking_on":"2014-06-26",
                     "status":"new",
-                    "previous_status":"new"
+                    "previous_status":"new",
+                    "file_ids": []
                 }
             ]
 
@@ -157,7 +159,8 @@ Posts a new comment with a new id in the location (task_id or conversation_id) t
                 "email_id": null,
                 "time_tracking_on": "2014-06-30",
                 "status": "new",
-                "previous_status": "new"
+                "previous_status": "new",
+                "file_ids": [451, 22]
             }
 
 + Response 422
@@ -208,7 +211,8 @@ Posts a new comment with a new id in the location (task_id or conversation_id) t
                 "email_id":null,
                 "time_tracking_on":"2014-06-26",
                 "status":"new",
-                "previous_status":"new"
+                "previous_status":"new",
+                "file_ids": []
             }
 
 ### Get Comment [GET]
@@ -296,7 +300,8 @@ Modifies an existing comment, id is mandatory.
                 "email_id": null,
                 "time_tracking_on": "2014-06-30",
                 "status": "new",
-                "previous_status": "new"
+                "previous_status": "new",
+                "file_ids": []
             }
 
 + Response 404
