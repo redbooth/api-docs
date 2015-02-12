@@ -36,7 +36,8 @@ Redbooth’s comments are small peaces of content that form part of tasks and co
                     "previous_urgent":false,
                     "email_id":null,
                     "time_tracking_on":"2014-06-26",
-                    "status":"new","previous_status":"new"
+                    "status":"new","previous_status":"new",
+                    "file_ids": [123]
                 },
                 {
                     "type":"Comment",
@@ -62,7 +63,8 @@ Redbooth’s comments are small peaces of content that form part of tasks and co
                     "email_id":null,
                     "time_tracking_on":"2014-06-26",
                     "status":"new",
-                    "previous_status":"new"
+                    "previous_status":"new",
+                    "file_ids": []
                 }
             ]
 
