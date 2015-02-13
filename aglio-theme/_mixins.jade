@@ -2,31 +2,13 @@
 
 mixin RedboothNav()
   div.col-md-3
-    - console.log(locals.root_url);
     nav#nav.hidden-sm.hidden-xs.affix.nav
-        .list-group
-          a.list-group-item.heading(href=locals.root_url) Home
-        each resourceGroup in api.resourceGroups
-            .list-group
-                a.list-group-item.heading.collapsed(data-toggle="#{(collapsible ? 'collapse' : '')}", data-target="##{(multipage ? 'page:' : '') + slug(resourceGroup.name)}-menu", href="##{(multipage ? 'page:' : '') + slug(resourceGroup.name)}")
-                    if collapsible && resourceGroup.resources.length
-                        span.toggle.pull-right
-                            span.open.fa.fa-angle-down
-                            span.closed.fa.fa-angle-right
-                    = resourceGroup.name || 'Resource Group'
-                div(class=collapsible ? 'collapse' : '', id="#{(multipage ? 'page:' : '') + slug(resourceGroup.name)}-menu")
-                    each resource in resourceGroup.resources
-                        if !condenseNav || (resource.actions.length != 1)
-                            a.list-group-item(href="##{multipage ? 'page:' + slug(resourceGroup.name) + ',header:' : ''}#{slug(resourceGroup.name)}-#{slug(resource.name)}", style="border-top-left-radius: 0; border-top-right-radius: 0")
-                                = resource.name || 'Resource'
-                            each action in resource.actions
-                                a.list-group-item(href="##{multipage ? 'page:' + slug(resourceGroup.name) + ',header:' : ''}#{slug(resourceGroup.name)}-#{slug(resource.name)}-#{slug(action.method)}", style="border-top-left-radius: 0; border-top-right-radius: 0")
-                                    span.indent
-                                        = action.name || action.method + ' ' + resource.uriTemplate
-                        else
-                            a.list-group-item(href="##{multipage ? 'page:' + slug(resourceGroup.name) + ',header:' : ''}#{slug(resourceGroup.name)}-#{slug(resource.name)}", style="border-top-left-radius: 0; border-top-right-radius: 0")
-                                - var action = resource.actions[0]
-                                = resource.name || action.name || action.method + ' ' + resource.uriTemplate
+      .list-group
+        a.list-group-item.heading(href=locals.root_url) Home
+        each section in locals.doc_sections
+          a.list-group-item.heading.collapsed(href=section.url)
+            = section.name
+
 mixin Nav(multipage, collapsible)
   div.col-md-3
     nav#nav.hidden-sm.hidden-xs.affix.nav

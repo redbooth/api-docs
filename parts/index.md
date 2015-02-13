@@ -8,7 +8,7 @@ As you go through the **Basic concepts** and the documentation of the different 
 
 Enjoy Redbooth’s API
 
-##Basic concepts
+## Basic concepts
 
 Our API has been built with high standards and the aim to offer an efficient and pleasant user experience. That is why in most endpoints you will be able to use the same parameters with your different GETs, POSTs, PUTs and DELETEs. The specific characteristics are detailed in each endpoint.
 
