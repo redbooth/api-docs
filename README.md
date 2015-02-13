@@ -1,20 +1,20 @@
 [Redbooth](https://redbooth.com/) is a total online collaboration solution with all of the features you need to manage projects effectively from anywhere.
 
-This is the official [Redbooth API v3](https://redbooth.com/api/api-docs/) documentation repository.
+This is the official [Redbooth API](https://redbooth.com/api/api-docs/) documentation repository.
 
 ## Contributing
 
 To contribute to the documentation please fork this repo, make your changes and then do a pull request.
-
-The documentation is organized into different parts located in the [`parts`](https://github.com/teambox/api-v3-docs/tree/master/parts) folder.
-
-To have the whole documentation on a single file, simply run `make doc` at the root of the repo.
+Documentation is on [parts folder](https://github.com/teambox/api-v3-docs/tree/master/parts). You just need to change the apropiate markdown file
 
 ## Rendering the documentation
-
-To render the documentation you just have to run `make render` on a cloned repo folder.
-
-You will need to have `npm` installed.
+1. Install <a href="http://nodejs.org/" target="_blank">node</a> `brew install node`.
+2. Install <a href="http://gulpjs.com/" target="_blank">Gulp</a> `npm install --global gulp`
+3. Fork this repo
+4. Once forked and cloned go to root folder and run: `npm install`
+5. Now run `gulp`
+6. Go to your browser to `http://localhost:8080`
+7. Done
 
 ## License
 
