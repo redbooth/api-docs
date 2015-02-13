@@ -1,0 +1,8 @@
+{
+  "development": {
+    "root_url": "http://localhost:8080/"
+  },
+  "production": {
+    "root_url": "https://redbooth.com/api/api-docs/"
+  }
+}
