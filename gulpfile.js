@@ -83,6 +83,7 @@ function getThemeLocals (enviroment) {
   return _.extend(Constants[enviroment], {
     doc_sections: doc_sections
   , _: _
+  , env: enviroment
   , custom_helpers: JadeHelpers
   });
 }
@@ -96,16 +97,16 @@ gulp.task('sass', ['clean'], function () {
   return gulp.src(options.stylesheets)
     .pipe(watch(options.stylesheets))
     .pipe(sass())
-    .pipe(gulp.dest(options.dest + '/css'));
+    .pipe(gulp.dest(options.dest + '/assets/css'));
 });
 
 gulp.task('javascripts', ['clean'], function () {
   var is_production = getEnviroment() === 'production' ? true : false;
 
   return gulp.src(options.javascripts)
-    .pipe(gulpif(is_production, concat('application.js')))
+    .pipe(gulpif(is_production, concat('main.js')))
     .pipe(gulpif(is_production, uglify()))
-    .pipe(gulp.dest(options.dest + '/javascripts'));
+    .pipe(gulp.dest(options.dest + '/assets/javascripts'));
 });
 
 gulp.task('generate_docs', ['clean'], function () {
@@ -132,5 +133,12 @@ gulp.task('webserver', function() {
     }));
 });
 
-// Default Task
-gulp.task('default', ['clean', 'javascripts', 'sass', 'generate_docs', 'webserver']);
+// Shared tasks bettwen production and development
+gulp.task('common', ['clean', 'javascripts', 'sass', 'generate_docs']);
+
+// Development
+gulp.task('default', ['common', 'webserver']);
+
+// Compile for production
+// FIXME: Assets fingerprint pending
+gulp.task('build-production', ['common']);
