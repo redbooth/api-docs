@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Projects
 Redbooth’s projects are interactive spaces that host tasks, conversations, notes and files. The members of a project can have access or not to those elements depending on their rights & permissions. Those, determine to the power of users to do actions such as deleting tasks, modifying them fifteen minutes after they have been created, etc.

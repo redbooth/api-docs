@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Notes
 Redbooth’s notes are shared pieces of contet taht can include files, images and other resources. They can be publicly shared and easily printed.

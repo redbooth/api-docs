@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Users
 This endpoint will give you information about all the users of your organization. It is a vew-only endpoint, since even being an admin you will not be allowed to update or delete other user accounts through the API.
