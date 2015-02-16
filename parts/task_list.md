@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group TaskLists
 Redbooth’s TaskLists gather tasks inside projects making them accessible and enabling a better organization. Their start and end date is orientative and doesn’t affect the tasks contained. They can be archived and moved from one project to another.

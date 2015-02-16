@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Tasks
 Tasks become the core feature of a lot organizations and they are also the most sophisticated elements in their different endpoints. Briefly described, tasks are complex elements composed by a name, a description and a body, that can be located in space and time by different parameters, and have capacity to host subtasks, files and unlimited interactive blocks of content.

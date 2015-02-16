@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Files
 This endpoint enables you to post, modify, get or delete files and folders form your account. The examples posted in the following verbs only affect to folders and repositories. Here's an example of the curl request that should be sent in order to create a real file:

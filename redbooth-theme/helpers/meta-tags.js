@@ -2,7 +2,7 @@ var MetaTags = {}
   , SEO_TAGS
   , _ = require('underscore');
 
-SEO_TAGS = ['META_TITLE', 'META_DESCRIPTION', 'META_KEYWORDS'];
+SEO_TAGS = ['NAME', 'META_DESCRIPTION', 'META_KEYWORDS'];
 /**
  * Parse aglio api meta information and extract SEO info for that page
  *

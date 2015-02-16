@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group User information
 This endpoint gives you information about your user or the user related to the authentication token that you are using.

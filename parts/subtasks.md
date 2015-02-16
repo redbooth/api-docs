@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Subtasks
 Subtasks enable users to build checklists inside tasks. They are small subsets of those and their architecture is very simple, since they are custom text spaces with an associated stage: to do or done.

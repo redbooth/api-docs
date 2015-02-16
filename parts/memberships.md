@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Memberships
 Memberships is a bridge endpoint that gathers users relating them with organizations, their role in those, etc. One user can have different memberships in different organizations, those are gathered in the endpoint memberships as different elements.

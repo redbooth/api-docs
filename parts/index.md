@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 Welcome to Redbooth’s API Documentation. In this section you will learn how to interact with Redbooth’s application programming interface and how start building your own apps on top of an amazing collaboration platform. We use our own API to serve our web and mobile products and so do the [existing integrations](https://redbooth.com/platform/integrations) with other popular technology solutions.
 As you go through the **Basic concepts** and the documentation of the different endpoints, you may want to test how our API works and what can you get from it. We recommend you to go ahead and start playing with the [Interactive Console](https://developer.redbooth.com/console/) to better understand what can be accomplished with each endpoint.

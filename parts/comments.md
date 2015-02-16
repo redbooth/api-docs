@@ -1,5 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
-META_TITLE: Redbooth API: Comments Documentation
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API: Comments Documentation
 
 # Group Comments
 Redbooth’s comments are small peaces of content that form part of tasks and conversations. They can include attachments and enriched text.

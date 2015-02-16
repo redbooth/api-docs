@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Conversations
 Redbooth’s conversations are interactive spaces where users can discuss about any subject or topic. Each conversation belongs to a project and once it is created, user’s comments are added to it in custom blocks that may include attached files. Conversations can be public or private.

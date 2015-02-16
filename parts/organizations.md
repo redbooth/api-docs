@@ -1,4 +1,6 @@
-<!-- include(parts/common/meta-and-name.md) -->
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
 
 # Group Organizations
 Redbooth's organizations are workspaces where teams meet to collaborate and work in an efficient way, they are the top level hierarchy scope in the product. Under an Organization, you will be able to create projects and invite members (users) to collaborate on them.
