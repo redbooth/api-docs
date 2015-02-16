@@ -1,0 +1,43 @@
+- var _ = locals._;
+doctype
+
+include _mixins.jade
+include _inline_shit_style_remove_me.jade
+
+html
+    head
+      meta(charset="utf-8")
+
+      - var seo_tags = custom_helpers.parseMetadata(api.metadata);
+      each tag in seo_tags
+        if (tag.name === 'META_TITLE')
+          title= tag.value
+        else
+          meta(name=tag.tag_name, content=tag.value)
+
+      link(rel="stylesheet", href="css/application.css")
+      -//+InlineShit()
+
+    body
+      div.container
+        .row
+
+          block nav
+            +RedboothNav()
+
+          .col-md-8
+            block content
+              div
+                header
+                  .page-header
+                    h1#top= api.name || 'API Documentation'
+
+                .description!= markdown(api.description)
+
+              +Content('primary', false)
+
+      if locals.env === 'development'
+        script(type='text/javascript', src='javascript/vendor/bootstrap.js')
+        -//script(type='text/javascript', src='javascript/application.js')
+      else
+        -//script(type='text/javascript', src='javascript/application.js')

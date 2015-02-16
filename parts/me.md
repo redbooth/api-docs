@@ -1,3 +1,5 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group User information
 This endpoint gives you information about your user or the user related to the authentication token that you are using.
 

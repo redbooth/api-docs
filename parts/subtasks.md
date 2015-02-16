@@ -1,3 +1,5 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group Subtasks
 Subtasks enable users to build checklists inside tasks. They are small subsets of those and their architecture is very simple, since they are custom text spaces with an associated stage: to do or done.
 
@@ -80,7 +82,7 @@ Returns a JSON list of subtasks that belong to a subtask with certain id.
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }

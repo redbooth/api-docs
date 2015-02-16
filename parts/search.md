@@ -1,3 +1,5 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group Search
 Search is a view only endpoint that will enable you to find anything you need from your Redbooth account. The variety of filters available and our optimized aplication empower this efficient and powerful search engine.
 

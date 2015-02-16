@@ -2,7 +2,7 @@
 
 mixin RedboothNav()
   div.col-md-3
-    nav#nav.hidden-sm.hidden-xs.affix.nav
+    nav#nav.hidden-sm.hidden-xs.nav
       .list-group
         a.list-group-item.heading(href=locals.root_url) Home
         each section in locals.doc_sections
@@ -168,16 +168,6 @@ mixin ResourceGroup(resourceGroup, getButtonClass, multipage)
                             +Examples(resourceGroup, resource, action)
 
 mixin Content(getButtonClass, multipage)
-    div(data-bind=multipage ? "visible: page() == 'home'" : undefined)
-        header
-            .page-header
-                h1#top= api.name || 'API Documentation'
-
-        .description!= markdown(api.description)
-
-    each resourceGroup, index in api.resourceGroups
-        div(data-bind=multipage ? "visible: page() == '#{slug(resourceGroup.name)}', style: {marginTop: page() == '#{slug(resourceGroup.name)}' ? '38px' : ''}" : undefined)
-            +ResourceGroup(resourceGroup, getButtonClass, multipage)
-
-            if multipage
-                +Paginate(api.resourceGroups, index)
+  each resourceGroup, index in api.resourceGroups
+    div(data-bind=multipage ? "visible: page() == '#{slug(resourceGroup.name)}', style: {marginTop: page() == '#{slug(resourceGroup.name)}' ? '38px' : ''}" : undefined)
+      +ResourceGroup(resourceGroup, getButtonClass, multipage)

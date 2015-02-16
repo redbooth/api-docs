@@ -9,6 +9,11 @@ var gulp = require('gulp')
   , clean = require('gulp-clean')
   , path = require('path')
   , aglio = require('gulp-aglio')
+  , sass = require('gulp-sass')
+  , concat = require('gulp-concat')
+  , gulpif = require('gulp-if')
+  , uglify = require('gulp-uglify')
+  , JadeHelpers = require('./redbooth-theme/helpers/base.js')
   , options;
 
 _.mixin(underscore_string.exports());
@@ -16,7 +21,10 @@ _.mixin(underscore_string.exports());
 options = {
   docs: 'parts'
 , dest: 'dest'
-, redbooth_theme: path.resolve(__dirname, 'aglio-theme', 'redbooth.jade')
+, stylesheets: 'redbooth-theme/assets/stylesheets/**/*.scss'
+, javascripts: 'redbooth-theme/assets/javascripts/**/*.js'
+, jades: 'redbooth-theme/**/*.jade'
+, redbooth_theme: path.resolve(__dirname, 'redbooth-theme', 'redbooth.jade')
 };
 
 /**
@@ -74,17 +82,36 @@ function getThemeLocals (enviroment) {
   var doc_sections = getDocSections(options.docs + '/*.md');
   return _.extend(Constants[enviroment], {
     doc_sections: doc_sections
-  })
+  , _: _
+  , custom_helpers: JadeHelpers
+  });
 }
 
 gulp.task('clean', function () {
-  return gulp.src(options.dest, {read: false})
-      .pipe(clean());
+  return gulp.src([options.dest], {read: false})
+    .pipe(clean({force: true}));
 });
 
-gulp.task('generate_docs', function () {
-  var wached_files = options.docs + '/*.md'
+gulp.task('sass', ['clean'], function () {
+  return gulp.src(options.stylesheets)
+    .pipe(watch(options.stylesheets))
+    .pipe(sass())
+    .pipe(gulp.dest(options.dest + '/css'));
+});
+
+gulp.task('javascripts', ['clean'], function () {
+  var is_production = getEnviroment() === 'production' ? true : false;
+
+  return gulp.src(options.javascripts)
+    .pipe(gulpif(is_production, concat('application.js')))
+    .pipe(gulpif(is_production, uglify()))
+    .pipe(gulp.dest(options.dest + '/javascripts'));
+});
+
+gulp.task('generate_docs', ['clean'], function () {
+  var wached_files = [options.docs + '/*.md', options.jades]
     , env = getEnviroment();
+
   return gulp.src(wached_files)
     .pipe(watch(wached_files))
     .pipe(aglio({
@@ -95,7 +122,7 @@ gulp.task('generate_docs', function () {
 });
 
 gulp.task('webserver', function() {
-  gulp.src(options.dest)
+  return gulp.src(options.dest)
     .pipe(webserver({
       livereload: true
     , directoryListing: false
@@ -106,4 +133,4 @@ gulp.task('webserver', function() {
 });
 
 // Default Task
-gulp.task('default', ['clean', 'generate_docs', 'webserver']);
+gulp.task('default', ['clean', 'javascripts', 'sass', 'generate_docs', 'webserver']);

@@ -1,5 +1,7 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group Users
-This endpoint will give you information about all the users of your organization. It is a vew-only endpoint, since even being an admin you will not be allowed to update or delete other user accounts through the API.  
+This endpoint will give you information about all the users of your organization. It is a vew-only endpoint, since even being an admin you will not be allowed to update or delete other user accounts through the API.
 
 ## User List [/users]
 
