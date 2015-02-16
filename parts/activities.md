@@ -1,3 +1,8 @@
+<!-- include(parts/common/meta-and-name.md) -->
+META_DESCRIPTION: This endpoint only offers an index. It enables us to get a list of activities filtered by different parameters
+META_KEYWORDS: API, Activities, Redbooth, version 3, endpoint
+META_TITLE: Redbooth API: Activities Documentation
+
 # Group Activities
 This endpoint only offers an index. It enables us to get a list of activities filtered by different parameters
 ## Activity List [/activities]

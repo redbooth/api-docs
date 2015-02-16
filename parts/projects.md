@@ -1,3 +1,5 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group Projects
 Redbooth’s projects are interactive spaces that host tasks, conversations, notes and files. The members of a project can have access or not to those elements depending on their rights & permissions. Those, determine to the power of users to do actions such as deleting tasks, modifying them fifteen minutes after they have been created, etc.
 
@@ -75,7 +77,7 @@ Returns a JSON list of projects to which the user has access.
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
@@ -198,7 +200,7 @@ In this case, we’re selecting a very specific element, so there is no need to 
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }

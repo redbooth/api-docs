@@ -1,3 +1,6 @@
+<!-- include(parts/common/meta-and-name.md) -->
+META_TITLE: Redbooth API: Comments Documentation
+
 # Group Comments
 Redbooth’s comments are small peaces of content that form part of tasks and conversations. They can include attachments and enriched text.
 
@@ -92,7 +95,7 @@ Returns a JSON list of comments to which the user has access.
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
@@ -231,7 +234,7 @@ In this case, we’re selecting a very specific element, so there is no need to 
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }

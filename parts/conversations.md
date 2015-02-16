@@ -1,3 +1,5 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group Conversations
 Redbooth’s conversations are interactive spaces where users can discuss about any subject or topic. Each conversation belongs to a project and once it is created, user’s comments are added to it in custom blocks that may include attached files. Conversations can be public or private.
 
@@ -64,7 +66,7 @@ Returns a JSON list of conversations to which the user has access.
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
@@ -178,7 +180,7 @@ In this case, we’re selecting a very specific element, so there is no need to 
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }

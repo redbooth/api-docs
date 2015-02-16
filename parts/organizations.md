@@ -1,3 +1,5 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group Organizations
 Redbooth's organizations are workspaces where teams meet to collaborate and work in an efficient way, they are the top level hierarchy scope in the product. Under an Organization, you will be able to create projects and invite members (users) to collaborate on them.
 
@@ -150,7 +152,7 @@ Posts a new organization with a new id.
                 "permalink": "my_organization",
                 "domain": "myorg.com",
                 "shortcut_apps": null,
-                "settings":  
+                "settings":
                     {
                         "allow_comment_deletion": true
                     },
@@ -299,7 +301,7 @@ Modifies an existing organization, id is mandatory.
                 "permalink": "modified_domaincom",
                 "domain": "myorg.com",
                 "shortcut_apps": null,
-                "settings":  
+                "settings":
                     {
                         "allow_comment_deletion": true
                     },

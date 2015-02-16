@@ -1,3 +1,5 @@
+<!-- include(parts/common/meta-and-name.md) -->
+
 # Group Tasks
 Tasks become the core feature of a lot organizations and they are also the most sophisticated elements in their different endpoints. Briefly described, tasks are complex elements composed by a name, a description and a body, that can be located in space and time by different parameters, and have capacity to host subtasks, files and unlimited interactive blocks of content.
 
@@ -109,7 +111,7 @@ Returns a JSON list of tasks to which the user has access.
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
@@ -268,7 +270,7 @@ In this case, we’re selecting a very specific element, so there is no need to 
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Not Found"
                       }
