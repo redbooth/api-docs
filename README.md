@@ -16,6 +16,14 @@ Documentation is on [parts folder](https://github.com/teambox/api-v3-docs/tree/m
 6. Go to your browser to `http://localhost:8080`
 7. Done
 
+## Compile to production
+If you want to generate the production version of this docs you can do
+it with this command:
+```
+  gulp build-production --env production
+
+```
+
 ## License
 
 Copyright 2014 Redbooth, Inc. All rights reserved.

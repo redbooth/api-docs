@@ -15,7 +15,7 @@ html
         else
           meta(name=tag.tag_name, content=tag.value)
 
-      link(rel="stylesheet", href="css/application.css")
+      link(rel='stylesheet', href='assets/css/application.css')
       -//+InlineShit()
 
     body
@@ -32,12 +32,17 @@ html
                   .page-header
                     h1#top= api.name || 'API Documentation'
 
-                .description!= markdown(api.description)
+                if api.description
+                  .description!= markdown(api.description)
 
               +Content('primary', false)
 
+      -// jQuery from CDN
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+      - // In development we show all the files. In production we generate a compiled version
       if locals.env === 'development'
-        script(type='text/javascript', src='javascript/vendor/bootstrap.js')
-        -//script(type='text/javascript', src='javascript/application.js')
+        script(type='text/javascript', src='assets/javascripts/vendor/bootstrap.js')
+        script(type='text/javascript', src='assets/javascripts/application.js')
       else
-        -//script(type='text/javascript', src='javascript/application.js')
+        script(type='text/javascript', src='assets/javascripts/main.js')
+
