@@ -1,3 +1,7 @@
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
+
 # Group People
 People is a bridge endpoint that gathers users relating them with projects, their role in those, etc. One user can be different persons in different projects, those characters are gathered in the endpoint people as single individuals.
 
@@ -87,7 +91,7 @@ Returns a JSON list of people in the different projects to which the user has ac
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
@@ -203,7 +207,7 @@ In this case, we’re selecting a very specific element, so there is no need to 
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }

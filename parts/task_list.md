@@ -1,3 +1,7 @@
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
+
 # Group TaskLists
 Redbooth’s TaskLists gather tasks inside projects making them accessible and enabling a better organization. Their start and end date is orientative and doesn’t affect the tasks contained. They can be archived and moved from one project to another.
 
@@ -102,12 +106,12 @@ Returns a JSON list of TaskLists to which the user has access.
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
             }
-            
+
 ### Create New TaskList [POST]
 Posts a new TaskList with a new id in the location (project_id) that you specify.
 
@@ -224,7 +228,7 @@ In this case, we’re selecting a very specific element, so there is no need to 
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }

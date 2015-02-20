@@ -1,3 +1,7 @@
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
+
 # Group Notifications
 Redbooth's notifications are automatically generated when certain activities take place. Their goal is to inform each user of the changes going on in the projects or tasks in which he is involved.
 

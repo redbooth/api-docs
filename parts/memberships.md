@@ -1,3 +1,7 @@
+FORMAT: 1A
+HOST: https://redbooth.com/api
+NAME: Redbooth API Documentation
+
 # Group Memberships
 Memberships is a bridge endpoint that gathers users relating them with organizations, their role in those, etc. One user can have different memberships in different organizations, those are gathered in the endpoint memberships as different elements.
 
@@ -69,7 +73,7 @@ Returns a JSON list of memberships in the different organizations to which the u
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
@@ -169,7 +173,7 @@ In this case, we’re selecting a very specific element, so there is no need to 
     + Body
 
             {
-              "error":  
+              "error":
                       {
                         "message": "Unauthorized"
                       }
