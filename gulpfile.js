@@ -59,15 +59,17 @@ function getEnviromentVariables () {
  */
 function getDocSections (folder) {
   return _.compact(_.map(glob.sync(folder), function (file) {
-    var name = file.replace(/parts\/([^\.]*)\.(md)/i, "$1");
+    var raw_name = file.replace(/parts\/([^\.]*)\.(md)/i, "$1");
+    raw_name = raw_name.replace(/_/i, ' ');
 
-    if (name === 'index') {
+    if (raw_name === 'index') {
       return;
     };
 
     return {
       url: file.replace(/parts\/([^\.]*)\.(md)/i, "\/$1\.html")
-    , name: _.capitalize(name.replace(/_/i, ' '))
+    , raw_name: raw_name
+    , name: _.capitalize(raw_name)
     };
   }));
 }
@@ -110,9 +112,13 @@ gulp.task('javascripts', ['clean'], function () {
 });
 
 gulp.task('generate_docs', ['clean'], function () {
-  var wached_files = [options.docs + '/*.md', options.jades]
+  var wached_files = [options.docs + '/*.md']
     , env = getEnviroment();
 
+  // NOTE: If you see some error like this:
+  // (CarbonCore.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-21)
+  // is because the watcher is checking too much files. It could be you have another
+  // project with a watcher running. Try to stop the other project.
   return gulp.src(wached_files)
     .pipe(watch(wached_files))
     .pipe(aglio({
@@ -134,7 +140,7 @@ gulp.task('webserver', function() {
 });
 
 // Shared tasks bettwen production and development
-gulp.task('common', ['clean', 'javascripts', 'sass', 'generate_docs']);
+gulp.task('common', ['javascripts', 'sass', 'generate_docs']);
 
 // Development
 gulp.task('default', ['common', 'webserver']);
