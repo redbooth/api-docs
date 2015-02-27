@@ -14,9 +14,12 @@ var gulp = require('gulp')
   , gulpif = require('gulp-if')
   , uglify = require('gulp-uglify')
   , JadeHelpers = require('./redbooth-theme/helpers/base.js')
+  , env
   , options;
 
 _.mixin(underscore_string.exports());
+
+env = getEnviroment();
 
 options = {
   docs: 'parts'
@@ -24,6 +27,8 @@ options = {
 , stylesheets: 'redbooth-theme/assets/stylesheets/**/*.scss'
 , javascripts: 'redbooth-theme/assets/javascripts/**/*.js'
 , jades: 'redbooth-theme/**/*.jade'
+, images: Constants[env].root_url + 'assets/images'
+, src_images: 'redbooth-theme/assets/images/**/*'
 , redbooth_theme: path.resolve(__dirname, 'redbooth-theme', 'redbooth.jade')
 };
 
@@ -98,8 +103,16 @@ gulp.task('clean', function () {
 gulp.task('sass', ['clean'], function () {
   return gulp.src(options.stylesheets)
     .pipe(watch(options.stylesheets))
-    .pipe(sass())
+    .pipe(sass({
+      imagePath: options.images
+    }))
     .pipe(gulp.dest(options.dest + '/assets/css'));
+});
+
+gulp.task('copy_images', ['clean'], function () {
+  return gulp.src(options.src_images)
+    .pipe(watch(options.src_images))
+    .pipe(gulp.dest(options.dest + '/assets/images'));
 });
 
 gulp.task('javascripts', ['clean'], function () {
@@ -140,7 +153,7 @@ gulp.task('webserver', function() {
 });
 
 // Shared tasks bettwen production and development
-gulp.task('common', ['javascripts', 'sass', 'generate_docs']);
+gulp.task('common', ['copy_images', 'javascripts', 'sass', 'generate_docs']);
 
 // Development
 gulp.task('default', ['common', 'webserver']);
