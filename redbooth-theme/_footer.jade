@@ -1,3 +1,12 @@
+mixin GoogleSearchResults()
+  .js-google-search-results.modal.fade.google-search-results
+    .modal-dialog
+      .modal-content
+        .modal-body
+          h3= 'Search Results'
+        .modal-footer
+          button.btn.btn-default(type='button', 'data-dismiss'='modal')='Close'
+
 mixin RedboothFooter()
   footer.rb-footer
     .container

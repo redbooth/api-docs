@@ -148,6 +148,18 @@
 @media (min-width: $screen-md-min) {
   .rb-dev-portal {
     .navbar-default {
+      .navbar-form {
+        margin-top: 30px;
+      }
+
+      form.gsc-search-box {
+        .gsc-input {
+          input {
+            width: 180px;
+          }
+        }
+
+      }
       .navbar-nav {
         &.navbar-nav--rb-top {
           >li {

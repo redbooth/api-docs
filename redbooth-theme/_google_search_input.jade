@@ -1,0 +1,63 @@
+mixin GoogleSearchEngineInput(gcse_code)
+  .js-google-search-box
+    script(type='text/javascript').
+      (function() {
+        var cx = "#{gcse_code}";
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+
+      function onGoogleSearchLoaded () {
+        $('input.gsc-input').keyup(function (event) {
+          if(event.keyCode === 13 || event.which === 13) {
+            //- TODO: Append search results HERE
+            //- $('#search-dialog').append($('#dialog'));
+            //- $('.js-google-search-results').modal('show')
+
+          }
+        });
+      }
+
+      // Registed callback after Google Custom Search v2 loads
+      window.__gcse = {
+        callback: onGoogleSearchLoaded
+      };
+
+    | <gcse:searchbox></gcse:searchbox>
+
+  //-   google.load('search', '1', {language : 'en'});
+  //-   google.setOnLoadCallback(function() {
+  //-     var customSearchControl = new google.search.CustomSearchControl("#{gcse_code}");
+  //-       , options;
+
+  //-     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+  //-     customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
+
+  //-     options = new google.search.DrawOptions();
+  //-     options.setSearchFormRoot('js-google-search-box');
+  //-     options.setAutoComplete(true);
+
+  //-     customSearchControl.draw('dialog', options);
+  //-     customSearchControl.setSearchCompleteCallback(this, CallBackDisplayDialog);
+  //-     customSearchControl.draw('gcs-widget', options);
+
+
+  //-   // establish a keep callback
+  //-   function CallBackDisplayDialog(result) {
+  //-     $('#search-dialog').append($('#dialog'));
+  //-     $('.js-google-search-results').modal('show')
+  //-   }
+
+  //- #js-google-search-box.cse-search-form(style='width: 100%;')
+  //-   form.gsc-search-box
+  //-     .gsc-input
+  //-       input.gsc-input(autocomplete='off', type='text', size='10', name='search')
+
+  //- #dialog(title='Search Results')
+  //-   p
+

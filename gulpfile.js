@@ -1,5 +1,9 @@
 var gulp = require('gulp')
   , glob = require("glob")
+  // , browserify = require('browserify')
+  // , buffer = require('vinyl-buffer')
+  // , reactify = require('reactify')
+  // , source = require('vinyl-source-stream')
   , webserver = require('gulp-webserver')
   , Constants = require('./constants.json')
   , minimist = require('minimist')
@@ -24,11 +28,13 @@ env = getEnviroment();
 options = {
   docs: 'parts'
 , dest: 'dest'
-, stylesheets: 'redbooth-theme/assets/stylesheets/**/*.scss'
-, javascripts: 'redbooth-theme/assets/javascripts/**/*.js'
+, stylesheets: './redbooth-theme/assets/stylesheets/**/*.scss'
+, src_javascripts: 'redbooth-theme/assets/javascripts/**/*.js'
+, js_src_folder: './redbooth-theme/assets/javascripts/'
 , jades: 'redbooth-theme/**/*.jade'
 , images: Constants[env].root_url + 'assets/images'
 , src_images: 'redbooth-theme/assets/images/**/*'
+, src_fonts: 'redbooth-theme/assets/fonts/**/*'
 , redbooth_theme: path.resolve(__dirname, 'redbooth-theme', 'redbooth.jade')
 };
 
@@ -115,10 +121,38 @@ gulp.task('copy_images', ['clean'], function () {
     .pipe(gulp.dest(options.dest + '/assets/images'));
 });
 
+gulp.task('copy_fonts', ['clean'], function () {
+  return gulp.src(options.src_fonts)
+    .pipe(watch(options.src_fonts))
+    .pipe(gulp.dest(options.dest + '/assets/fonts'));
+});
+
+// Our JS task. It will Browserify our code and compile React JSX files.
+// gulp.task('browserify', function(){
+//   var is_production = getEnviroment() === 'production' ? true : false
+//     , bundler = browserify();
+
+//   // use the reactify transform
+//   bundler.transform(reactify);
+//   bundler.add(options.jsx_search);
+//   return bundler.bundle()
+//     .pipe(source('bundle.js'))
+//     .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
+//     .pipe(gulpif(is_production, uglify())) // now gulp-uglify works
+//     .pipe(gulp.dest(options.dest + '/assets/javascripts'));
+// });
+
+// gulp.task('watch-browserify', ['clean'], function() {
+//   watch(options.jsx_search, function() {
+//     gulp.start('browserify');
+//   });
+// });
+
 gulp.task('javascripts', ['clean'], function () {
   var is_production = getEnviroment() === 'production' ? true : false;
 
-  return gulp.src(options.javascripts)
+  return gulp.src(options.src_javascripts)
+    .pipe(watch(options.src_javascripts))
     .pipe(gulpif(is_production, concat('main.js')))
     .pipe(gulpif(is_production, uglify()))
     .pipe(gulp.dest(options.dest + '/assets/javascripts'));
@@ -153,7 +187,7 @@ gulp.task('webserver', function() {
 });
 
 // Shared tasks bettwen production and development
-gulp.task('common', ['copy_images', 'javascripts', 'sass', 'generate_docs']);
+gulp.task('common', ['copy_images', 'copy_fonts', 'javascripts', 'sass', 'generate_docs']);
 
 // Development
 gulp.task('default', ['common', 'webserver']);

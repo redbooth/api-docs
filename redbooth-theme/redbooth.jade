@@ -1,8 +1,9 @@
 include _mixins.jade
 include _header.jade
+include _google_search_input.jade
 include _footer.jade
-
 - var _ = locals._;
+- var gcse_code = '002075656509811517002:g2mf9rh_kfa';
 
 doctype
 html
@@ -21,7 +22,7 @@ html
       link(type='text/css', rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Droid+Serif:400,700,400italic')
 
     body.rb-dev-portal
-      +RedboothHeader()
+      +RedboothHeader(gcse_code)
       .rb-content-wrapper
         div.container.rb-aglio-doc
           .row
@@ -38,16 +39,24 @@ html
                     .description!= markdown(api.description)
                 .col-md-9
                   +Content('primary', false)
+                  if (gcse_code)
+                    div.gcse-results
+                      | <gcse:searchresults></gcse:searchresults>
+
                 .col-md-3
                   +ResourceNavigation()
 
       +RedboothFooter()
+
+      if (gcse_code)
+        +GoogleSearchEngineInput(gcse_code)
 
       -// jQuery from CDN
       script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
       - // In development we show all the files. In production we generate a compiled version
       if locals.env === 'development'
         script(type='text/javascript', src='assets/javascripts/vendor/bootstrap.js')
+        script(type='text/javascript', src='assets/javascripts/google-search.js')
         script(type='text/javascript', src='assets/javascripts/application.js')
       else
         script(type='text/javascript', src='assets/javascripts/main.js')
