@@ -1,0 +1,250 @@
+$get_panel_color: #21A3B9;
+$post_panel_color: #85B136;
+$put_panel_color: #EE8A01;
+$delete_panel_color: #ED6160;
+
+@mixin resource_color($color: $get_panel_color) {
+  border-color: $color;
+  > .list-group,
+    .list-group-item {
+      border-color: $color;
+    }
+  > .panel-heading {
+    background-color: $color;
+    border-color: $color;
+    .btn {
+      color: $color;
+      border-color: darken($color, 5%);
+    }
+  }
+}
+
+.api-wrapper {
+  > p:first-child:empty {
+    margin: 0;
+  }
+}
+.rb-content-wrapper {
+  .content {
+    .main {
+      .rb-aglio-doc {
+        a.list-group-item {
+          text-decoration: none;
+          opacity: 1;
+          &:not(.heading):hover {
+            text-decoration: none;
+            opacity: .7;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rb-aglio-doc {
+  min-height: 600px;
+  padding-bottom: 40px;
+
+  h1 {
+    color: $brand-danger;
+    font-weight: 300;
+  }
+
+  h1, h2, h3, h4, h5 {
+    a {
+      display: none;
+    }
+    &:hover {
+      a {
+        display: inline;
+      }
+    }
+  }
+
+  code {
+    color: #444;
+    font-family: monospace !important;
+    &.no-background {
+      background-color: transparent;
+    }
+  }
+
+  a[data-target] {
+    cursor: pointer;
+  }
+
+  h4 {
+    font-size: 100%;
+    font-weight: $font-weight-bold;
+  }
+
+  .panel {
+    overflow: hidden;
+  }
+
+  .panel-heading {
+    code {
+      color: #c7254e;
+      background-color: transparent;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+    }
+
+    h3 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  a.list-group-item {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &.heading {
+      background-color: #f5f5f5;
+      transition: background-color .15s ease-in-out;
+      &:hover {
+        text-decoration: none;
+        background-color: $gray-2;
+      }
+    }
+  }
+
+  &.collapse {
+    display: none;
+    &.in {
+      display: block;
+    }
+  }
+
+  .list-group {
+    margin-bottom: $space-byte;
+    > ul {
+      padding: 0;
+      margin: 0;
+      li {
+        list-style: none;
+        > ul {
+          padding-left: 30px;
+          a.list-group-item {
+            padding: 0;
+            color: $brand-primary;
+            &.is-active {
+              color: $brand-danger;
+            }
+          }
+        }
+      }
+
+      > li {
+        > a.list-group-item {
+          &:before {
+            content: '\203A';
+            padding-right: 5px;
+            font-size: $font-size-medium-xlarge;
+            line-height: $space-giga-byte;
+            color: $brand-primary;
+          }
+          &.is-active {
+            &:before {
+              color: $brand-danger;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  a.list-group-item {
+    border-radius: 3px;
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    padding: 6px 8px;
+    color: $gray-darker;
+    &.is-active {
+      background-color: transparent;
+      color: $brand-danger;
+    }
+
+    &.heading {
+      background-color: $gray-3;
+      color: $gray-darker;
+      font-weight: $font-weight-normal;
+      text-decoration: none;
+      font-size: $font-size-medium-large;
+      &.is-active {
+        background-color: $brand-danger;
+        color: white;
+        font-weight: $font-weight-semi-bold;
+        text-decoration: none;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+}
+
+.rb-aglio-doc-resource-description {
+  margin: 0 0 20px 0;
+}
+
+.rb-aglio-doc-content {
+  .rb-aglio-doc-resource {
+    > .panel {
+      box-shadow: none;
+      background-color: transparent;
+      > .panel-heading {
+        padding: 0;
+        border-bottom: 0;
+        h2 {
+          margin-top: 0;
+          font-weight: $font-weight-bold;
+        }
+      }
+      > .panel-body {
+        padding: 0;
+      }
+      > .panel-body {
+        .panel-heading {
+          code {
+            color: rgba(255, 255, 255, 0.8);
+          }
+        }
+        > .panel,
+          .panel-heading {
+            .rb-doc-resource-name {
+              float: right;
+              color: white;
+              text-transform: lowercase;
+            }
+            .btn {
+              text-decoration: none;
+              font-weight: $font-weight-semi-bold;
+              background-color: rgba(255, 255, 255, 0.8);
+            }
+
+          &.panel-info {
+            @include resource_color;
+          }
+          &.panel-success {
+            @include resource_color($post_panel_color);
+          }
+          &.panel-warning {
+            @include resource_color($put_panel_color);
+          }
+          &.panel-danger {
+            @include resource_color($delete_panel_color);
+          }
+        }
+      }
+    }
+  }
+}

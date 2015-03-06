@@ -1,0 +1,70 @@
+.rb-footer {
+  @include panel(70px, $blue-dark, $space-mega-byte);
+}
+
+.rb-footer-cta {
+  margin-bottom: 0;
+  padding-bottom: 55px;
+  border-bottom: 1px solid #464550;
+  span {
+    display: block;
+    font-size: $font-size-medium-xxlarge;
+    font-weight: $font-weight-light;
+    color: $brand-primary;
+    @media (min-width: $screen-lg-min) {
+      display: inline;
+    }
+    .fa {
+      display: none;
+      @media (min-width: $screen-lg-min) {
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 40px;
+        font-size: $font-size-medium-xlarge;
+      }
+    }
+  }
+  a {
+    margin-top: $space-giga-byte;
+    @media (min-width: $screen-lg-min) {
+      margin-top: -$space-kilo-byte;
+    }
+  }
+}
+
+.rb-footer-bot {
+  padding-top: $space-tera-byte;
+  padding-bottom: $space-tera-byte;
+  font-size: $font-size-medium;
+  line-height: 2;
+  color: $gray-light;
+}
+
+.rb-footer-nav {
+  font-weight: $font-weight-light;
+  @include list-inline(8px, 8px);
+  @media (min-width: $screen-lg-min) {
+    text-align: right;
+  }
+  a {
+    color: $gray-light;
+  }
+}
+
+.rb-footer-copyright {
+  margin-top: $space-giga-byte;
+  margin-bottom: 0;
+  @media (min-width: $screen-lg-min) {
+    margin-top: 0;
+    margin-left: 50px;
+    text-align: left;
+  }
+  span {
+    display: inline-block;
+    padding-left: 35px;
+    background: image-url("logo-footer.png") no-repeat left center;
+    @media (min-width: $screen-lg-min) {
+      padding-left: 50px;
+    }
+  }
+}

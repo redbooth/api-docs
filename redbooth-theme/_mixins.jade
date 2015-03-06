@@ -77,8 +77,8 @@ mixin RequestResponse(title, request, resourceGroup, resource, action)
         code= request.name
     if content
       a.pull-right.collapsed(data-toggle="collapse", data-target="##{id}")
-        span.closed Show
-        span.open Hide
+        span='Show more info'
+
   if content
     li.list-group-item.panel-collapse.collapse(id=id)
       if request.description
@@ -110,7 +110,7 @@ mixin Examples(resourceGroup, resource, action)
         +RequestResponse('Response', response, resourceGroup, resource, action)
 
 mixin ResourceGroup(resourceGroup, getButtonClass, multipage)
-  .panel.panel-default
+  .panel
     .panel-heading
       h3(id="#{slug(resourceGroup.name)}")
         = resourceGroup.name || 'Resource Group'
@@ -119,7 +119,8 @@ mixin ResourceGroup(resourceGroup, getButtonClass, multipage)
           i.fa.fa-link
     .panel-body
       if resourceGroup.description
-        != markdown(resourceGroup.description)
+        .rb-aglio-doc-resource-description
+          != markdown(resourceGroup.description)
       each resource in resourceGroup.resources
         h4(id="#{slug(resourceGroup.name)}-#{slug(resource.name)}")
           = resource.name || 'Resources'
@@ -139,8 +140,7 @@ mixin ResourceGroup(resourceGroup, getButtonClass, multipage)
           section.panel(class=panelClass, id="#{slug(resourceGroup.name)}-#{slug(resource.name)}-#{slug(action.method)}")
             .panel-heading
               if action.name
-                div(style="float:right")
-                  span(style="text-transform: lowercase")= action.name
+                div.rb-doc-resource-name= action.name
               case action.method
                 when 'POST': - var btnClass = 'btn-success'
                 when 'GET': - var btnClass = 'btn-' + getButtonClass
@@ -163,5 +163,5 @@ mixin ResourceGroup(resourceGroup, getButtonClass, multipage)
 
 mixin Content(getButtonClass, multipage)
   each resourceGroup, index in api.resourceGroups
-    div(data-bind=multipage ? "visible: page() == '#{slug(resourceGroup.name)}', style: {marginTop: page() == '#{slug(resourceGroup.name)}' ? '38px' : ''}" : undefined)
+    .rb-aglio-doc-resource(data-bind=multipage ? "visible: page() == '#{slug(resourceGroup.name)}', style: {marginTop: page() == '#{slug(resourceGroup.name)}' ? '38px' : ''}" : undefined)
       +ResourceGroup(resourceGroup, getButtonClass, multipage)

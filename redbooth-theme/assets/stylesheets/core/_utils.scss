@@ -1,0 +1,11 @@
+%clearfix_no_overflow_hidden {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.cf {
+  @extend %clearfix_no_overflow_hiddenl;
+}

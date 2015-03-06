@@ -1,0 +1,29 @@
+mixin RedboothFooter()
+  footer.rb-footer
+    .container
+      .row.rb-footer-top
+        .col-sm-12
+          .rb-footer-cta
+            span
+              = 'Need more information?'
+              i.fa.fa-chevron-right
+            a.btn.btn-primary(href='mailto:platform@redbooth.com')= 'Ask now'
+
+      .row.rb-footer-bot
+
+        .col-sm-12.col-lg-9.col-lg-push-3
+          ul.rb-footer-nav
+            li
+              a(title='Collaboration Platform', href='https://redbooth.com')= 'Collaboration Platform'
+            li
+              a(title='Your Apps', href='https://www.redbooth.com/platform/integrations', target='_blank')= 'Integrations'
+            li
+              a(title='Register your App', href='https://www.redbooth.com/oauth2/applications', target='_blank')= 'My Apps'
+            li
+              a(title='Authentication', href='/api/authentication/')= 'Authentication'
+            li
+              a(title='Terms', href='/api/terms/')= 'Terms'
+
+        .col-sm-12.col-lg-3.col-lg-pull-9
+          p.rb-footer-copyright
+            span= '© 2014 Redbooth'

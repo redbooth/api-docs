@@ -1,0 +1,24 @@
+- var base_url = '/api/';
+
+mixin RedboothHeader()
+  header.banner.navbar.navbar-default.navbar-static-top
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', 'data-toggle'='collapse', 'data-target'='.navbar-collapse')
+          span.sr-only='Toggle navigation'
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand.text-hide(href='https://redbooth.com/api/')='Developer Portal'
+
+      nav.collapse.navbar-collapse(role='navigation')
+        .navbar-form.with-icon.navbar-right
+        ul#menu-top_menu.nav.navbar-nav.navbar-right.navbar-nav--rb-top
+          li.active
+            a(href= (base_url + 'api-docs/'))= 'Docs'
+          li
+            a(href= (base_url + 'console/'))= 'Console'
+          li
+            a(href='http://status.redbooth.com/1270071', target='_blank')= 'API status'
+          li
+            a(href= (base_url + 'contact-us/'))= 'Contact'

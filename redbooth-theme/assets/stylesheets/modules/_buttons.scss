@@ -1,0 +1,29 @@
+.btn {
+  border-radius: 2px;
+  text-transform: uppercase;
+  padding: 6px 30px;
+}
+
+.btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+}
+
+.btn-primary {
+  background-color: $btn-primary-bg;
+  border-color: $btn-primary-border;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > .dropdown-toggle {
+    background-color: darken($btn-primary-bg, 10%);
+    border-color: darken($btn-primary-border, 12%);
+  }
+}
+
+.btn-lg {
+  font-size: 15px;
+  font-weight: $font-weight-semi-bold;
+}
