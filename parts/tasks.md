@@ -98,6 +98,7 @@ Returns a JSON list of tasks to which the user has access.
     + assigned (optional, string, `true`) ... The task can be assigned or unassigned, =true or =false.
     + archived (optional, string, `true`) ... Tasks are archived once they have been completed and this parameter can be =true or =false.
     + status (optional, string, `resolved`) ... Tasks can have different status: new, open, hold, resolved or rejected.
+    + archived_project (optional, string, `false`) ... Whether the request should include tasks that belong to archived projects or not. They are included by default.
 
 
 + Response 200
