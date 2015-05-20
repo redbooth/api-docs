@@ -34,8 +34,10 @@ Redbooth’s notes are shared pieces of contet taht can include files, images an
                     "user_id": 688561,
                     "updated_by_id": 688561,
                     "metadata":  {},
-                    "deleted": false
-
+                    "deleted": false,
+                    "watcher_ids":  [
+                      688561
+                    ]
                   },
                   {
                     "type": "Page",
@@ -53,7 +55,10 @@ Redbooth’s notes are shared pieces of contet taht can include files, images an
                     "user_id": 688561,
                     "updated_by_id": 688561,
                     "metadata":  {},
-                    "deleted": false
+                    "deleted": false,
+                    "watcher_ids":  [
+                      688561
+                    ]
                   }
             ]
 
@@ -98,6 +103,7 @@ Posts a new note with a new id in the location (project_id) that you specify.
     + content (optional, string, `Example content`) ... The body of the note.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the note will be public if there is no specification.
     + shared = `false` (optional, string, `true`) ... Notes can be publicly shared and accessible to externals.
+    + watcher_ids (optional, array, [786268]) The ids of the users that will follow the note. Note the creator user will be added as follower automatically
 
 + Request
 
@@ -111,7 +117,8 @@ Posts a new note with a new id in the location (project_id) that you specify.
                 "name":"Example title",
                 "content":"Example content.",
                 "project_id":"902783",
-                "shared":"true"
+                "shared":"true",
+                "watcher_ids": [786268]
             }
 
 + Response 201
@@ -140,7 +147,10 @@ Posts a new note with a new id in the location (project_id) that you specify.
                     "user_id":688561,
                     "updated_by_id":688561,
                     "metadata":{},
-                    "deleted":false
+                    "deleted":false,
+                    "watcher_ids":  [
+                      688561, 786268
+                    ]
                 }
             ]
 
@@ -185,7 +195,10 @@ Posts a new note with a new id in the location (project_id) that you specify.
                     "user_id": 688561,
                     "updated_by_id": 688561,
                     "metadata":  {},
-                    "deleted": false
+                    "deleted": false,
+                    "watcher_ids":  [
+                      688561, 786268
+                    ]
                 }
             ]
 
@@ -226,6 +239,7 @@ Modifies an existing note, id is mandatory.
     + body (optional, string, `Example content modified`) ... The content of the note.
     + is_private = `fasle` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the conversation will be public if there is no specification.
     + shared = `false` (optional, string, `true`) ... Notes can be publicly shared and accessible to externals.
+    + watcher_ids (optional, array, [688561, 786268, 796268]) The ids of the users that follow the note. Note that all follower users whose id is not included in the array, except the task creator, will be removed from the note's followers.
 
 + Request
 
@@ -239,7 +253,10 @@ Modifies an existing note, id is mandatory.
                 "name":"Example title modified",
                 "content":"Modified content",
                 "project_id":"902783",
-                "shared":"true"
+                "shared":"true",
+                "watcher_ids": [
+                  688561, 786268, 796268
+                ]
             }
 
 + Response 200
@@ -268,7 +285,10 @@ Modifies an existing note, id is mandatory.
                     "user_id":688561,
                     "updated_by_id":688561,
                     "metadata":{},
-                    "deleted":false
+                    "deleted":false,
+                    "watcher_ids": [
+                      688561, 786268, 796268
+                    ]
                 }
             ]
 

@@ -40,7 +40,7 @@ Tasks become the core feature of a lot organizations and they are also the most 
                     "subtasks_count": 0,
                     "resolved_subtasks_count": 0,
                     "watcher_ids":  [
-                        688561
+                      688561, 786268, 796268
                     ],
                     "description": null,
                     "description_html": "",
@@ -71,7 +71,7 @@ Tasks become the core feature of a lot organizations and they are also the most 
                     "subtasks_count": 0,
                     "resolved_subtasks_count": 0,
                     "watcher_ids":  [
-                        688561
+                      688561
                     ],
                     "description": null,
                     "description_html": "",
@@ -134,6 +134,7 @@ Don't forget to "name" your task!
     + description (optional, string, `Example description`) ... Description of the task that will stay on the top of it.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the task will be public if there is no specification.
     + status = `new` (optional, string, `open`) ... Tasks can have different status: new, open, hold, resolved or rejected.
+    + watcher_ids (optional, array, [786268]) The ids of the users that will follow the task. Note the creator user will be added as follower automatically
 
 + Request
 
@@ -148,7 +149,8 @@ Don't forget to "name" your task!
                 "task_list_id":"12445",
                 "name":"Example title",
                 "description":"Example description",
-                "is_private":"false"
+                "is_private":"false",
+                "watcher_ids": [786268]
             }
 
 + Response 201
@@ -184,7 +186,7 @@ Don't forget to "name" your task!
                     "subtasks_count": 0,
                     "resolved_subtasks_count": 0,
                     "watcher_ids":  [
-                        688561
+                      688561, 786268
                     ],
                     "description": "Example description",
                     "description_html": "<p>\nExample description</p>",
@@ -242,7 +244,7 @@ Don't forget to "name" your task!
                     "subtasks_count": 0,
                     "resolved_subtasks_count": 0,
                     "watcher_ids":  [
-                        688561
+                      688561, 786268
                     ],
                     "description": null,
                     "description_html": "",
@@ -292,6 +294,7 @@ Modifies an existing task, id is mandatory.
     + description (optional, string, `Example body modified`) ... The description of the task.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false.
     + status = `new` (optional, string, `open`) ... Tasks can have different status: new, open, hold, resolved or rejected.
+    + watcher_ids (optional, array, [688561, 786268, 796268]) The ids of the users that follow the task. Note that all follower users whose id is not included in the array, except the task creator, will be removed from the task's followers.
 
 + Request
 
@@ -306,7 +309,10 @@ Modifies an existing task, id is mandatory.
                 "name":"Example title modified",
                 "description":"Example description modified",
                 "is_private":"false",
-                "assigned_user_id":"688561"
+                "assigned_user_id":"688561",
+                "watcher_ids": [
+                  688561, 786268, 796268
+                ]
             }
 
 + Response 200
@@ -340,7 +346,9 @@ Modifies an existing task, id is mandatory.
                     "metadata":{},
                     "subtasks_count":0,
                     "resolved_subtasks_count":0,
-                    "watcher_ids":[688561],
+                    "watcher_ids": [
+                      688561, 786268, 796268
+                    ]
                     "description":"Example description modified",
                     "description_html":"<p>\nExample description modified</p>",description_updated_by_user_id":688561,
                     "updated_by_id":688561,
