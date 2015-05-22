@@ -89,7 +89,7 @@ Posts a new conversation with a new id in the location (project_id) that you spe
     + name (required, string, `Example name`) ... The name that the conversation will have.
     + body (optional, string, `Example body`) ... The body of the conversation.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the conversation will be public if there is no specification.
-    + watcher_ids (optional, array, [786268]) The ids of the users that will follow the conversation. Note the creator user will be added as follower automatically
+    + watcher_ids (optional, array, [786268]) The id's of the users that will follow the conversation. Note that the creator user will be added as a follower automatically
 
 + Request
 

@@ -134,7 +134,7 @@ Don't forget to "name" your task!
     + description (optional, string, `Example description`) ... Description of the task that will stay on the top of it.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the task will be public if there is no specification.
     + status = `new` (optional, string, `open`) ... Tasks can have different status: new, open, hold, resolved or rejected.
-    + watcher_ids (optional, array, [786268]) The ids of the users that will follow the task. Note the creator user will be added as follower automatically
+    + watcher_ids (optional, array, [786268]) The id's of the users that will follow the task. Note that the creator user will be added as a follower automatically
 
 + Request
 

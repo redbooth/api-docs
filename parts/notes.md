@@ -103,7 +103,7 @@ Posts a new note with a new id in the location (project_id) that you specify.
     + content (optional, string, `Example content`) ... The body of the note.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the note will be public if there is no specification.
     + shared = `false` (optional, string, `true`) ... Notes can be publicly shared and accessible to externals.
-    + watcher_ids (optional, array, [786268]) The ids of the users that will follow the note. Note the creator user will be added as follower automatically
+    + watcher_ids (optional, array, [786268]) The id's of the users that will follow the note. Note that the creator user will be added as a follower automatically
 
 + Request
 
@@ -239,7 +239,7 @@ Modifies an existing note, id is mandatory.
     + body (optional, string, `Example content modified`) ... The content of the note.
     + is_private = `fasle` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the conversation will be public if there is no specification.
     + shared = `false` (optional, string, `true`) ... Notes can be publicly shared and accessible to externals.
-    + watcher_ids (optional, array, [688561, 786268, 796268]) The ids of the users that follow the note. Note that all follower users whose id is not included in the array, except the task creator, will be removed from the note's followers.
+    + watcher_ids (optional, array, [688561, 786268, 796268]) The id's of the users that follow the note. Note that all follower users whose id is not included in the array, except the task creator, will be removed from the note's followers.
 
 + Request
 
