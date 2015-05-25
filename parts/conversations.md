@@ -28,7 +28,10 @@ Redbooth’s conversations are interactive spaces where users can discuss about 
                     "user_id": 688561,
                     "comments_count": 1,
                     "is_private": false,
-                    "last_activity_id": 56202516
+                    "last_activity_id": 56202516,
+                    "watcher_ids":  [
+                      688561
+                    ]
                   },
                   {
                     "type": "Conversation",
@@ -40,7 +43,10 @@ Redbooth’s conversations are interactive spaces where users can discuss about 
                     "user_id": 688561,
                     "comments_count": 5,
                     "is_private": false,
-                    "last_activity_id": 53787980
+                    "last_activity_id": 53787980,
+                    "watcher_ids":  [
+                      688561
+                    ],
                   }
             ]
 
@@ -83,6 +89,7 @@ Posts a new conversation with a new id in the location (project_id) that you spe
     + name (required, string, `Example name`) ... The name that the conversation will have.
     + body (optional, string, `Example body`) ... The body of the conversation.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the conversation will be public if there is no specification.
+    + watcher_ids (optional, array, [786268]) The id's of the users that will follow the conversation. Note that the creator user will be added as a follower automatically
 
 + Request
 
@@ -96,7 +103,8 @@ Posts a new conversation with a new id in the location (project_id) that you spe
                 "name":"Example title",
                 "body":"Example body",
                 "project_id":"902783",
-                "is_private":"false"
+                "is_private":"false",
+                "watcher_ids": [786268]
             }
 
 + Response 201
@@ -119,7 +127,10 @@ Posts a new conversation with a new id in the location (project_id) that you spe
                     "user_id": 688561,
                     "comments_count": 1,
                     "is_private": false,
-                    "last_activity_id": null
+                    "last_activity_id": null,
+                    "watcher_ids":  [
+                      688561, 786268
+                    ]
                 }
             ]
 
@@ -158,7 +169,10 @@ Posts a new conversation with a new id in the location (project_id) that you spe
                   "user_id":688561,
                   "comments_count":1,
                   "is_private":false,
-                  "last_activity_id":56202516
+                  "last_activity_id":56202516,
+                  "watcher_ids":  [
+                    688561, 786268
+                  ],
                 }
             ]
 
@@ -200,6 +214,7 @@ Modifies an existing conversation, id is mandatory.
     + name (optional, string, `Example title modified`) ... The name that the conversation will have.
     + body (optional, string, `Example body modified`) ... The body of the conversation.
     + is_private = `fasle` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false. It will be =false by default, so the conversation will be public if there is no specification.
+    + watcher_ids (optional, array, [688561, 786268, 796268]) The ids of the users that follow the conversation. Note that all follower users whose id is not included in the array, except the task creator, will be removed from the conversation's followers.
 
 + Request
 
@@ -213,7 +228,10 @@ Modifies an existing conversation, id is mandatory.
                 "name":"Example title modified",
                 "body":"Example body modified",
                 "project_id":"902789",
-                "is_private":"false"
+                "is_private":"false",
+                "watcher_ids": [
+                  688561, 786268, 796268
+                ]
             }
 
 + Response 200
@@ -236,7 +254,10 @@ Modifies an existing conversation, id is mandatory.
                     "user_id": 688561,
                     "comments_count": 1,
                     "is_private": false,
-                    "last_activity_id": null
+                    "last_activity_id": null,
+                    "watcher_ids": [
+                      688561, 786268, 796268
+                    ]
                 }
             ]
 
