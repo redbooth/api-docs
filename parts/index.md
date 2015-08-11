@@ -25,30 +25,37 @@ The results of a GET are ordered by ascending id by default. Nevertheless, you w
 
 You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements:
 
-- id → order=id-ASC or order=id-DESC
-- created_at → order=created_at-ASC or order=created_at-DESC
-- updated_at → order=updated_at-ASC or order=updated_at-DESC
-- position → order=position-ASC or order=position-DESC
+- `id` → `order=id-ASC` or `order=id-DESC`
+- `created_at` → `order=created_at-ASC` or `order=created_at-DESC`
+- `updated_at` → `order=updated_at-ASC` or `order=updated_at-DESC`
+- `row_order` → `order=row_order-ASC` or `order=row_order-DESC` (only available in some endpoints)
+- `position` → `order=position-ASC` or `order=position-DESC` (only available in some endpoints)
 
 Example → Let’s ask for our conversations ordered by created_at using curl:
 
-```
+```sh
 curl -X GET -H 'Authorization: Bearer Oauth_Access_token' -d 'order=created_at-ASC' -v https://redbooth.com/api/3/conversations
+```
+
+Example → Let’s ask for our tasks ordered by the position given to them by the user using curl:
+
+```sh
+curl -X GET -H 'Authorization: Bearer Oauth_Access_token' -d 'order=row_order-ASC' -v https://redbooth.com/api/3/tasks
 ```
 
 This request will give us a JSON with all the conversations to which we have access, conversations sorted by creation date.
 
 ### Pagination
 
-By default, all list endpoints will return the first 1,000 results. More results can be retrieved by paginating using the fields: page and per_page.
+By default, all list endpoints will return the first 1,000 results. More results can be retrieved by paginating using the fields: `page` and `per_page`.
 
-- page → you choose the page that you want to get.
-- per_page → you choose how many results per page do you want to get, with a maximum of 1000.
-- page&per_page → having chosen an “x” number of results per_page, you want to see the “y” page.
+- `page` → you choose the page that you want to get.
+- `per_page` → you choose how many results per page do you want to get, with a maximum of 1000.
+- `page` & `per_page` → having chosen an "x" number of results `per_page`, you want to see the "y" `page`.
 
-Example → Let’s ask for the second page of our conversations distributed in 5-result pages using curl:
+Example → Let's ask for the second page of our conversations distributed in 5-result pages using curl:
 
-```
+```sh
 curl -X GET -H 'Authorization: Bearer Oauth_Access_token' -d 'order=id&page=2&per_page=5' -v https://redbooth.com/api/3/conversations
 ```
 
@@ -60,19 +67,19 @@ There are location filters that enable you to GET something from somewhere or to
 
 Let’s see a GET and a POST example with the conversations endpoint. This are the most used parameters in this endpoint:
 
-- organization_id → The id of the organization to which the element belongs or will belong after posting it.
-- project_id → The project’s id to which the element belongs or will belong after posting it.
-- user_id → The user’s id to which the element belongs or will belong after posting it.
+- `organization_id` → The id of the organization to which the element belongs or will belong after posting it.
+- `project_id` → The project’s id to which the element belongs or will belong after posting it.
+- `user_id` → The user’s id to which the element belongs or will belong after posting it.
 
 Example with POST:
 
-```
+```sh
 curl -X POST -H 'Content-type: application/json' -H 'Authorization: Bearer Oauth_Access_token' -d '{"name":"Example title","project_id":"x","type":"Conversation"}' -v https://redbooth.com/api/3/conversations
 ```
 
 Example with GET:
 
-```
+```sh
 curl -X GET -H 'Authorization: Bearer Oauth_Access_token' -d 'order=id&organization_id=x' -v https://redbooth.com/api/3/conversations
 ```
 

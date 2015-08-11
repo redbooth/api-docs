@@ -38,7 +38,7 @@ options = {
  * @return {String}
  */
 function getEnviroment () {
-  args = getEnviromentVariables()
+  var args = getEnviromentVariables()
     , available_envs = ['development', 'production'];
 
   if (args.env && _.indexOf(available_envs, args.env) != -1 ) {
