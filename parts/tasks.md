@@ -33,6 +33,7 @@ Tasks become the core feature of a lot organizations and they are also the most 
                     "urgent": false,
                     "user_id": 688561,
                     "position": 0,
+                    "row_order": 0,
                     "last_activity_id": 56403892,
                     "record_conversion_type": null,
                     "record_conversion_id": null,
@@ -48,7 +49,7 @@ Tasks become the core feature of a lot organizations and they are also the most 
                     "updated_by_id": null,
                     "deleted": false,
                     "due_on": null
-            },
+                },
                 {
                     "type": "Task",
                     "created_at": 1403078393,
@@ -64,6 +65,7 @@ Tasks become the core feature of a lot organizations and they are also the most 
                     "urgent": false,
                     "user_id": 688561,
                     "position": 1,
+                    "row_order": 1000,
                     "last_activity_id": 56403886,
                     "record_conversion_type": null,
                     "record_conversion_id": null,
@@ -87,7 +89,7 @@ Returns a JSON list of tasks to which the user has access.
 
 + Parameters
 
-    + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: id, created_at, updated_at and position.
+    + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: `id`, `created_at`, `updated_at` and `row_order`. Take into account that `position` is a calculated field thus it is not possible to order a list of tasks by using it. If you need to order the tasks by the position in the list, use `row_order` instead of `position`.
     + per_page = `1000`(optional, integer, `15`) ... You choose how many results per page do you want to get, with a maximum of 1000.
     + page = `1` (optional, integer, `3`) ... You choose the page that you want to get.
     + organization_id (optional, integer, `1295`) ... Id of the organization to which the element belongs.
@@ -179,6 +181,7 @@ Don't forget to "name" your task!
                     "urgent": false,
                     "user_id": 688561,
                     "position": 6,
+                    "row_order": 6500,
                     "last_activity_id": null,
                     "record_conversion_type": null,
                     "record_conversion_id": null,
@@ -237,6 +240,7 @@ Don't forget to "name" your task!
                     "urgent": false,
                     "user_id": 688561,
                     "position": 0,
+                    "row_order": 0,
                     "last_activity_id": 56403892,
                     "record_conversion_type": null,
                     "record_conversion_id": null,
@@ -295,6 +299,7 @@ Modifies an existing task, id is mandatory.
     + is_private = `false` (optional, string, `false`) ... This parameter is used to manage rights & permissions. It can be =true or =false.
     + status = `new` (optional, string, `open`) ... Tasks can have different status: new, open, hold, resolved or rejected.
     + watcher_ids (optional, array, [688561, 786268, 796268]) The ids of the users that follow the task. Note that all follower users whose id is not included in the array, except the task creator, will be removed from the task's followers.
+    + position (optional, integer, `1`) ... Numeric position of a task on the task list. Note that this will modify `row_order` as a side effect.
 
 + Request
 
@@ -312,7 +317,8 @@ Modifies an existing task, id is mandatory.
                 "assigned_user_id":"688561",
                 "watcher_ids": [
                   688561, 786268, 796268
-                ]
+                ],
+                "position": 4
             }
 
 + Response 200
@@ -340,6 +346,7 @@ Modifies an existing task, id is mandatory.
                     "urgent":false,
                     "user_id":688561,
                     "position":4,
+                    "row_order":3500,
                     "last_activity_id":56593093,
                     "record_conversion_type":null,
                     "record_conversion_id":null,
