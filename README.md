@@ -20,7 +20,7 @@ Documentation is on [parts folder](https://github.com/teambox/api-v3-docs/tree/m
 If you want to generate the production version of this docs you can do
 it with this command:
 
-```shell
+```sh
 gulp build-production --env production
 ```
 

@@ -28,7 +28,8 @@ You can always choose in which order do you want to get your results. You can so
 - `id` → `order=id-ASC` or `order=id-DESC`
 - `created_at` → `order=created_at-ASC` or `order=created_at-DESC`
 - `updated_at` → `order=updated_at-ASC` or `order=updated_at-DESC`
-- `row_order` → `order=row_order-ASC` or `order=row_order-DESC`
+- `row_order` → `order=row_order-ASC` or `order=row_order-DESC` (only available in some endpoints)
+- `position` → `order=position-ASC` or `order=position-DESC` (only available in some endpoints)
 
 Example → Let’s ask for our conversations ordered by created_at using curl:
 

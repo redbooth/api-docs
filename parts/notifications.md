@@ -75,7 +75,7 @@ Returns a JSON list of notifications to be read by the user.
 
 + Parameters
 
-    + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: id, created_at, updated_at and position.
+    + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: `id`, `created_at` and `updated_at`.
     + per_page = `1000`(optional, integer, `15`) ... You choose how many results per page do you want to get, with a maximum of 1000.
     + page = `1` (optional, integer, `3`) ... You choose the page that you want to get.
 

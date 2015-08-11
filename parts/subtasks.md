@@ -27,6 +27,7 @@ Subtasks enable users to build checklists inside tasks. They are small subsets o
                     "name": "Review by Alexz",
                     "resolved": false,
                     "position": 3,
+                    "row_order": 3000,
                     "task_id": 13019770
                 },
                 {
@@ -37,6 +38,7 @@ Subtasks enable users to build checklists inside tasks. They are small subsets o
                     "name": "Slide design",
                     "resolved": false,
                     "position": 2,
+                    "row_order": 2000,
                     "task_id": 13019770
                 },
                 {
@@ -46,7 +48,8 @@ Subtasks enable users to build checklists inside tasks. They are small subsets o
                     "id": 479533,
                     "name": "Content",
                     "resolved": false,
-                    "position": 2,
+                    "position": 5,
+                    "row_order": 5000,
                     "task_id": 13019770
                 },
                 {
@@ -57,6 +60,7 @@ Subtasks enable users to build checklists inside tasks. They are small subsets o
                     "name": "Cover",
                     "resolved": false,
                     "position": 1,
+                    "row_order": 1000,
                     "task_id": 13019770
                 }
             ]
@@ -67,7 +71,7 @@ Returns a JSON list of subtasks that belong to a subtask with certain id.
 + Parameters
 
     + task_id (required, integer, `35456`) ... Id of the task that hosts the subtasks.
-    + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: id, created_at, updated_at and position.
+    + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: `id`, `created_at`, `updated_at` and `row_order`. Take into account that `position` is a calculated field thus it is not possible to order a list of tasks by using it. If you need to order the tasks by the position in the list, use `row_order` instead of `position`.
     + per_page = `1000`(optional, integer, `15`) ... You choose how many results per page do you want to get, with a maximum of 1000.
     + page = `1` (optional, integer, `3`) ... You choose the page that you want to get.
 
@@ -132,6 +136,7 @@ Posts a new subtask with a new id in the location (task_id) that you specify. Wh
                 "name":"Example subtask 2",
                 "resolved":false,
                 "position":2,
+                "row_order": 2000,
                 "task_id":13074981
             }
 
@@ -158,7 +163,7 @@ Modifies an existing subtask, purpose for which the id of the subtask that wants
     + task_id (required, integer, `35456`) ... Id of the task that will host the subtask.
     + name (required, string, `Example name`) ... The name that the subtask will have.
     + resolved = `false` (optional, string, `true`) ... This parameter determines if the subtask has been resoved or not.
-    + position (optional, integer, `1`) ... Position of the subtask in the subtask list, inside the task.
+    + position (optional, integer, `1`) ... Position of a subtask on the sub tasks list, inside the task. Note that this will modify `row_order` as a side effect.
 
 + Request
 
@@ -190,6 +195,7 @@ Modifies an existing subtask, purpose for which the id of the subtask that wants
                 "name":"Example subtask 2",
                 "resolved":true,
                 "position":2,
+                "row_order": 2000,
                 "task_id":13074981
             }
 
