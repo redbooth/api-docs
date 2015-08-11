@@ -11,7 +11,7 @@ Documentation is on [parts folder](https://github.com/teambox/api-v3-docs/tree/m
 1. Install <a href="http://nodejs.org/" target="_blank">node</a> `brew install node`.
 2. Install <a href="http://gulpjs.com/" target="_blank">Gulp</a> `npm install --global gulp`
 3. Fork this repo
-4. Once forked and cloned go to root folder and run: `npm install`
+4. Once forked and cloned go to root folder and run: `make render`
 5. Now run `gulp`
 6. Go to your browser to `http://localhost:8080`
 7. Done
@@ -19,9 +19,9 @@ Documentation is on [parts folder](https://github.com/teambox/api-v3-docs/tree/m
 ## Compile to production
 If you want to generate the production version of this docs you can do
 it with this command:
-```
-  gulp build-production --env production
 
+```shell
+gulp build-production --env production
 ```
 
 ## License
