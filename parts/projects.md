@@ -55,7 +55,7 @@ Redbooth’s projects are interactive spaces that host tasks, conversations, not
             ]
 
 ### Get Projects [GET]
-Returns a JSON list of projects to which the user has access.
+Returns a JSON list of projects to which the user has access. That may include projects to which the user doesn't belong, like open projects he can join. 
 
 + Parameters
 
@@ -63,7 +63,7 @@ Returns a JSON list of projects to which the user has access.
     + per_page = `1000`(optional, integer, `15`) ... You choose how many results per page do you want to get, with a maximum of 1000.
     + page = `1` (optional, integer, `3`) ... You choose the page that you want to get.
     + organization_id (optional, integer, `1283`) ... The id of the organization to which the element belongs.
-    + user_id (optional, integer, `12341`) ... Filters your projects taking the ones to which a user with a given user_id belongs.
+    + user_id (optional, integer, `12341`) ... Filters your projects taking the ones to which a user with a given user_id belongs, ie. those to which the user has been invited or joined. 
     + archived(optional, string, `false`) Projects can be archived when an administrator decides that the project has finished. This parameter can be =true or =false.
 
 + Response 200
