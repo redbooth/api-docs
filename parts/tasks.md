@@ -98,8 +98,7 @@ Returns a JSON list of tasks to which the user has access.
     + user_id (optional, integer, `12231`) ... Id of the user that created the task.
     + assigned_user_id (optional, integer, `12231`) ... Id of the user to which the task is assigned.
     + assigned (optional, string, `true`) ... The task can be assigned or unassigned, =true or =false.
-    + archived (optional, string, `true`) ... Tasks are archived once they have been completed and this parameter can be =true or =false.
-    + status (optional, string, `resolved`) ... Tasks can have different status: new, open, hold, resolved or rejected.
+    + archived (optional, string, `true`) ... Tasks are archived once they have been resolved and this parameter can be =true, =false or =all to get the tasks in both states. When the parameter is not set, by default retuns the archived=false tasks.
     + archived_project (optional, string, `false`) ... Whether the request should include tasks that belong to archived projects or not. They are included by default.
 
 
