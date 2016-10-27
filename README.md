@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/CATechnologies/api-v3-docs.png?label=ready&title=Ready)](https://waffle.io/CATechnologies/api-v3-docs)
 [Redbooth](https://redbooth.com/) is a total online collaboration solution with all of the features you need to manage projects effectively from anywhere.
 
 This is the official [Redbooth API v3](https://redbooth.com/api/api-docs/) documentation repository.
