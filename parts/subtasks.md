@@ -74,6 +74,8 @@ Returns a JSON list of subtasks that belong to a subtask with certain id.
     + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: `id`, `created_at`, `updated_at` and `row_order`. Take into account that `position` is a calculated field thus it is not possible to order a list of tasks by using it. If you need to order the tasks by the position in the list, use `row_order` instead of `position`.
     + per_page = `1000`(optional, integer, `15`) ... You choose how many results per page do you want to get, with a maximum of 1000.
     + page = `1` (optional, integer, `3`) ... You choose the page that you want to get.
+    + resolve = `true` (optional, boolean, `true`) ... Returns only subtasks that are resolved. This parameter is only applied when `true` is passed, passing `false` does not return unresolved subtasks.
+    + active = `true` (optional, boolean, `true`) ... Returns only subtasks that are unresolved. This parameter is only applied when `true` is passed, passing `false` does not return resolved subtasks.
 
 + Response 200
 
