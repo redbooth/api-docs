@@ -1,0 +1,12 @@
+// Override default Google Custom Search Engine styles
+// !important here are important ;)
+.gsc-orderby-container {
+  display: none !important;
+}
+.gcsc-branding {
+  display: none !important;
+}
+.gsc-results-wrapper-overlay {
+  width: 90% !important;
+  left: 5% !important;
+}

@@ -1,6 +1,7 @@
 @import "vendor/highlight-js";
 @import "vendor/bootstrap";
 @import "vendor/wtf-forms";
+@import "vendor/fontawesome/font-awesome";
 
 @import "core/variables";
 @import "core/base";
@@ -9,6 +10,7 @@
 
 @import "modules/buttons";
 @import "modules/top_navigation";
+@import "modules/gcse_overrides";
 @import "modules/resource_navigation";
 @import "modules/footer";
 @import "modules/aglio";

@@ -1,6 +1,6 @@
 - var base_url = '/api/';
 
-mixin RedboothHeader()
+mixin RedboothHeader(gcse_code)
   header.banner.navbar.navbar-default.navbar-static-top
     .container
       .navbar-header
@@ -12,7 +12,15 @@ mixin RedboothHeader()
         a.navbar-brand.text-hide(href='https://redbooth.com/api/')='Developer Portal'
 
       nav.collapse.navbar-collapse(role='navigation')
-        .navbar-form.with-icon.navbar-right
+        if (gcse_code)
+          .navbar-form.with-icon.navbar-right
+            .form-group
+              i.fa.fa-search.search-icon
+              .js-search-box
+                form.gsc-search-box
+                  .gsc-input
+                    input.gsc-input(autocomplete='off', type='text', size='10', name='search')
+
         ul#menu-top_menu.nav.navbar-nav.navbar-right.navbar-nav--rb-top
           li.active
             a(href= (base_url + 'api-docs/'))= 'Docs'
