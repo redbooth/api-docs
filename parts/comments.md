@@ -179,7 +179,7 @@ Posts a new comment with a new id in the location (task_id or conversation_id) t
                 "error": "Unprocessable Entity"
             }
 
-## Comment [/comment/{id}]
+## Comment [/comments/{id}]
 
 + Model
 

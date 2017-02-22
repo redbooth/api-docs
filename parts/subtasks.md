@@ -70,7 +70,8 @@ Returns a JSON list of subtasks that belong to a subtask with certain id.
 
 + Parameters
 
-    + task_id (required, integer, `35456`) ... Id of the task that hosts the subtasks.
+    + task_id (required, integer, `35456`) ... Id of the task that hosts the subtasks. `task_id` is not needed when sending `assigned_user_id`.
+    + assigned_user_id (required, integer, `35456`) ... Id of the user who is assigned to the subtasks. `assigned_user_id` is not needed when sending `task_id`.
     + order = `id-DESC` (optional, string, `created_at-ASC`) ... You can always choose in which order do you want to get your results. You can sort them in ascending or descending order by the following elements: `id`, `created_at`, `updated_at` and `row_order`. Take into account that `position` is a calculated field thus it is not possible to order a list of tasks by using it. If you need to order the tasks by the position in the list, use `row_order` instead of `position`.
     + per_page = `1000`(optional, integer, `15`) ... You choose how many results per page do you want to get, with a maximum of 1000.
     + page = `1` (optional, integer, `3`) ... You choose the page that you want to get.
@@ -162,8 +163,8 @@ Modifies an existing subtask, purpose for which the id of the subtask that wants
 + Parameters
 
     + id (required, integer, `121879`) ... Id of the subtask that we are looking for. It is MANDATORY and it has to be in the url.
-    + task_id (required, integer, `35456`) ... Id of the task that will host the subtask.
-    + name (required, string, `Example name`) ... The name that the subtask will have.
+    + task_id (optional, integer, `35456`) ... Id of the task that will host the subtask.
+    + name (optional, string, `Example name`) ... The name that the subtask will have.
     + resolved = `false` (optional, string, `true`) ... This parameter determines if the subtask has been resoved or not.
     + position (optional, integer, `1`) ... Position of a subtask on the sub tasks list, inside the task. Note that this will modify `row_order` as a side effect.
 
